@@ -36,6 +36,14 @@ class Pokemon(Base):
     def __repr__(self):
         return f"<Pokemon[{self.id}]({self.api_id}) -> {self.name} -> {self.position} -> {self.url}]>"
 
+    def display(self, counter=1):
+        print(f"{counter}.) POKEMON id {self.id} | api_id { self.api_id } | name \"{self.name}\" | position {self.position} | url {self.url}")
+
+        ability_counter = 1
+        for pa in self.pokemon_abilities:
+            print(f"  {counter}.{ability_counter}.) ABILITY {pa.ability.name}")
+            ability_counter += 1
+
     @classmethod
 
     def display_table_data(cls, engine):

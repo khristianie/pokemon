@@ -9,13 +9,11 @@ from models.pokemon_ability import PokemonAbility
 from pprint import pprint
 
 from sqlalchemy import create_engine, select, delete, text
-from sqlalchemy.orm import registry, Session
+from sqlalchemy.orm import Session
 
 engine = create_engine(
         f"mysql+mysqlconnector://{constants.DB_USERNAME}:{constants.DB_PASSWORD}@{constants.DB_HOST}:{constants.DB_PORT}/{constants.DB_NAME}",
         echo=True)
-
-mapper_registry = registry()
 
 Base.metadata.create_all(engine)
 
